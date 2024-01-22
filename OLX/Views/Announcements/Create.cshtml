@@ -1,0 +1,47 @@
+﻿@model Announcement;
+<h1>Create New Product</h1>
+
+<form class="row g-3" method="post" asp-action="Create">
+    <div class="col-md-8">
+        <label asp-for=Title class="form-label">Title</label>
+        <input asp-for=Title type="text" class="form-control" placeholder="Enter product name">
+        <span asp-validation-for=Title class="form-text text-danger"></span>
+    </div>
+    <div class="col-md-4">
+        <label asp-for=Price class="form-label">Price</label>
+        <input asp-for=Price type="number" class="form-control" placeholder="Enter product price">
+        <span asp-validation-for=Price class="form-text text-danger"></span>
+    </div>
+    <div class="col-md-12">
+        <label asp-for=Category class="form-label">Category</label>
+        <input asp-for=Category type="text" class="form-control" placeholder="Enter product category">
+        <span asp-validation-for=Category class="form-text text-danger"></span>
+    </div>
+    <div class="col-md-12">
+        <label asp-for=Description class="form-label">Description</label>
+        <textarea asp-for=Description class="form-control" rows="3" placeholder="Enter product description"></textarea>
+        <span asp-validation-for=Description class="form-text text-danger"></span>
+    </div>
+    <div class="col-md-12">
+        <label asp-for=City class="form-label">City</label>
+        <input asp-for=City type="text" class="form-control" placeholder="Enter City">
+        <span asp-validation-for=City class="form-text text-danger"></span>
+    </div>
+    <div class="col-md-12">
+        <label asp-for=SellerName class="form-label">Seller name</label>
+        <input asp-for=SellerName type="text" class="form-control" placeholder="Enter your name">
+        <span asp-validation-for=SellerName class="form-text text-danger"></span>
+    </div>
+    <div class="col-md-12">
+        <label asp-for=ContactInformation class="form-label">Contact information</label>
+        <input asp-for=ContactInformation type="text" class="form-control" placeholder="Enter your phone number">
+        <span asp-validation-for=ContactInformation class="form-text text-danger"></span>
+    </div>
+
+    <div class="col-6">
+        <a asp-action="Index" class="btn btn-dark w-100">Back</a>
+    </div>
+    <div class="col-6">
+        <button type="submit" class="btn btn-success w-100">Create</button>
+    </div>
+</form>

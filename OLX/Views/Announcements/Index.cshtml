@@ -1,0 +1,43 @@
+﻿@model List<Announcement>;
+
+<h1>Announcement List</h1>
+<div>
+    <a asp-action="Create" class="btn btn-primary">Create New Announcement</a>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Category</th>
+            <th scope="col">Description</th>
+            <th scope="col">City</th>
+            <th scope="col">Price</th>
+            <th scope="col">Seller name</th>
+            <th scope="col">Contact information</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var i in Model)
+        {
+            <tr>
+                <th scope="row">@i.Id</th>
+                <td>@i.Title</td>
+                <td>@i.Category</td>
+                <td>@i.Description</td>
+                <td>@i.City</td>
+                <td>@i.Price$</td>
+                <td>@i.SellerName</td>
+                <td>@i.ContactInformation</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@i.Id">
+                            <i>Delete</i>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
