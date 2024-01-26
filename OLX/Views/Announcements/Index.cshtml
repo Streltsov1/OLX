@@ -24,16 +24,21 @@
             <tr>
                 <th scope="row">@i.Id</th>
                 <td>@i.Title</td>
-                <td>@i.Category</td>
-                <td>@i.Description</td>
-                <td>@i.City</td>
+                <td>@i.Category?.Name</td>
+                <td>@i.City?.Name</td>
                 <td>@i.Price$</td>
                 <td>@i.SellerName</td>
                 <td>@i.ContactInformation</td>
                 <td>
                     <div class="btn-group" role="group" aria-label="Basic example">
+                        <a class="btn btn-dark" asp-action="Details" asp-route-id="@i.Id">
+                            <span>Details</span>
+                        </a>
+                        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@i.Id">
+                            <span>Edit</span>
+                        </a>
                         <a class="btn btn-danger" asp-action="Delete" asp-route-id="@i.Id">
-                            <i>Delete</i>
+                            <span>Delete</span>
                         </a>
                     </div>
                 </td>

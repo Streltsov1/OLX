@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OLX.Data;
 
@@ -10,9 +11,11 @@ using OLX.Data;
 namespace OLX.Migrations
 {
     [DbContext(typeof(OLXDbContext))]
-    partial class OLXDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240126143143_init")]
+    partial class init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
