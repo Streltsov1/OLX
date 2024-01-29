@@ -2,20 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using OLX.Data;
+using DataAccess.Data;
 
 #nullable disable
 
-namespace OLX.Migrations
+namespace DataAccess.Migrations
 {
     [DbContext(typeof(OLXDbContext))]
-    [Migration("20240126143143_init")]
-    partial class init
+    partial class OLXDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,7 +21,7 @@ namespace OLX.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("OLX.Data.Entities.Announcement", b =>
+            modelBuilder.Entity("DataAccess.Data.Entities.Announcement", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -140,7 +137,7 @@ namespace OLX.Migrations
                         });
                 });
 
-            modelBuilder.Entity("OLX.Data.Entities.Category", b =>
+            modelBuilder.Entity("DataAccess.Data.Entities.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -204,7 +201,7 @@ namespace OLX.Migrations
                         });
                 });
 
-            modelBuilder.Entity("OLX.Data.Entities.City", b =>
+            modelBuilder.Entity("DataAccess.Data.Entities.City", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -343,15 +340,15 @@ namespace OLX.Migrations
                         });
                 });
 
-            modelBuilder.Entity("OLX.Data.Entities.Announcement", b =>
+            modelBuilder.Entity("DataAccess.Data.Entities.Announcement", b =>
                 {
-                    b.HasOne("OLX.Data.Entities.Category", "Category")
+                    b.HasOne("DataAccess.Data.Entities.Category", "Category")
                         .WithMany("Announcements")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("OLX.Data.Entities.City", "City")
+                    b.HasOne("DataAccess.Data.Entities.City", "City")
                         .WithMany("Announcements")
                         .HasForeignKey("CityId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -362,12 +359,12 @@ namespace OLX.Migrations
                     b.Navigation("City");
                 });
 
-            modelBuilder.Entity("OLX.Data.Entities.Category", b =>
+            modelBuilder.Entity("DataAccess.Data.Entities.Category", b =>
                 {
                     b.Navigation("Announcements");
                 });
 
-            modelBuilder.Entity("OLX.Data.Entities.City", b =>
+            modelBuilder.Entity("DataAccess.Data.Entities.City", b =>
                 {
                     b.Navigation("Announcements");
                 });

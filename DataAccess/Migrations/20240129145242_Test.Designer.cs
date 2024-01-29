@@ -2,17 +2,20 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using OLX.Data;
+using DataAccess.Data;
 
 #nullable disable
 
-namespace OLX.Migrations
+namespace DataAccess.Migrations
 {
     [DbContext(typeof(OLXDbContext))]
-    partial class OLXDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240129145242_Test")]
+    partial class Test
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

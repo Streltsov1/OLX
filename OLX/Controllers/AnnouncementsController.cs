@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using OLX.Data;
-using OLX.Data.Entities;
+using DataAccess.Data;
+using DataAccess.Data.Entities;
 
 namespace OLX.Controllers
 {

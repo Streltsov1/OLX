@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using OLX.Data;
+using DataAccess.Data;
 using OLX.Models;
 using System.Diagnostics;
 

@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using OLX.Data;
+using DataAccess.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +9,8 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<OLXDbContext>(opts =>
                 opts.UseSqlServer(connStr));
+
+
 
 var app = builder.Build();
 

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using OLX.Data.Entities;
-namespace OLX.Data
+using DataAccess.Data.Entities;
+namespace DataAccess.Data
 {
     public class OLXDbContext : DbContext
     {

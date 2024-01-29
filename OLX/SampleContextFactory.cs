@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
-namespace OLX.Data
+namespace DataAccess.Data
 {
     public class SampleContextFactory : IDesignTimeDbContextFactory<OLXDbContext>
     {
