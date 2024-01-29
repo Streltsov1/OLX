@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using DataAccess.Data;
+using BusinessLogic;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +11,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<OLXDbContext>(opts =>
                 opts.UseSqlServer(connStr));
 
-
+builder.Services.AddAutoMapper();
 
 var app = builder.Build();
 
