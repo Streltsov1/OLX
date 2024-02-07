@@ -12,6 +12,7 @@ builder.Services.AddDbContext<OLXDbContext>(opts =>
                 opts.UseSqlServer(connStr));
 
 builder.Services.AddAutoMapper();
+builder.Services.AddFluentValidator();
 
 var app = builder.Build();
 
