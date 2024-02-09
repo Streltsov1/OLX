@@ -26,3 +26,11 @@ img.image-view{
     margin:10px;
     object-fit: cover;
 }
+.my-card{
+    display:flex;
+    border: 1px solid lightgray;
+    margin-bottom:20px;
+}
+.my-card card-body-text{
+
+}
