@@ -31,6 +31,17 @@ img.image-view{
     border: 1px solid lightgray;
     margin-bottom:20px;
 }
-.my-card card-body-text{
-
+.title-link {
+    text-decoration: none;
+    color: black;
+}
+.card .title-link:hover {
+    text-decoration: underline;
+    color: darkgray;
+}
+.card img {
+    padding: 10px;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 8px;
 }

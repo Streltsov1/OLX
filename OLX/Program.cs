@@ -1,6 +1,16 @@
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
+using FluentValidation.AspNetCore;
 using DataAccess.Data;
+using BusinessLogic.Mapping;
 using BusinessLogic;
+using DataAccess;
+using BusinessLogic.Services;
+using OLX.Helpers;
+using Microsoft.AspNetCore.Identity;
+using DataAccess.Data.Entities;
+using BusinessLogic.Interfaces;
+using OLX.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +23,15 @@ builder.Services.AddDbContext<OLXDbContext>(opts =>
 
 builder.Services.AddAutoMapper();
 builder.Services.AddFluentValidator();
+
+builder.Services.AddCustomServices();
+builder.Services.AddFavoriteService();
+builder.Services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromDays(30);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
 
 var app = builder.Build();
 
@@ -30,6 +49,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",

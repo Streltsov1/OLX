@@ -6,6 +6,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
+using BusinessLogic.Mapping;
+using BusinessLogic.Interfaces;
+using BusinessLogic.Services;
 
 namespace BusinessLogic
 {
@@ -14,6 +18,7 @@ namespace BusinessLogic
         public static void AddAutoMapper(this IServiceCollection services)
         {
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
         }
         public static void AddFluentValidator(this IServiceCollection services)
         {
@@ -22,6 +27,10 @@ namespace BusinessLogic
             services.AddFluentValidationClientsideAdapters();
             // Load an assembly reference rather than using a marker type.
             services.AddValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
+        }
+        public static void AddCustomServices(this IServiceCollection services)
+        {
+            services.AddScoped<IAnnouncementService, AnnouncementService>();
         }
     }
 }

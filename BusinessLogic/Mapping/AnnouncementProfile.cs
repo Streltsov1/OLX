@@ -14,8 +14,10 @@ namespace BusinessLogic.Mapping
 
             CreateMap<CreateAnnouncementModel, Announcement>().ReverseMap();
             CreateMap<EditAnnouncementModel, Announcement>().ReverseMap();
+            CreateMap<EditAnnouncementModel, AnnouncementDto>().ReverseMap();
           
             CreateMap<Category, CategoryDto>().ReverseMap();
+            CreateMap<City, CityDto>().ReverseMap();
 
         }
     }

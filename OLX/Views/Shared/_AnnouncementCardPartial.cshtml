@@ -1,4 +1,6 @@
-﻿@model Announcement
+﻿﻿@using BusinessLogic.Interfaces;
+@inject IFavoriteService favoriteService;
+@model Announcement
 @*<div class="card mb-3 h-100">
     <div class="row g-0">
         <div class="col-md-4">
@@ -18,17 +20,35 @@
 </div>*@
 <div class="my-card mb-3">
     <div>
-        <img src="@Model.ImageUrl" class="img-fluid rounded-start image-view" alt="Image url">
+        <a asp-controller="Announcements"
+           asp-action="Details"
+           asp-route-id="@Model.Id"
+           asp-route-returnUrl="@Context.Request.Path">
+            <img src="@Model.ImageUrl" class="img-fluid rounded-start image-view" alt="Image Url">
+        </a>
     </div>
     <div class="card-body">
         <div>
             <div class="d-flex justify-content-between">
-                <h5 class="card-title">@Model.Title</h5>
+                <a class="title-link"
+                   asp-controller="Announcements"
+                   asp-action="Details"
+                   asp-route-id="@Model.Id"
+                   asp-route-returnUrl="@Context.Request.Path">
+                    <h5 class="card-title">@Model.Title</h5>
+                </a>
                 <p>@Model.Price$</p>
             </div>
             <div class="d-flex justify-content-between">
                 <p class="card-text"><small class="text-body-secondary">@Model.City?.Name</small></p>
-                <a>Add to favorite</a>
+                @if (favoriteService.IsExists(Model.Id))
+                {
+                    <a asp-controller="Favorite" asp-action="Remove" asp-route-id="@Model.Id" asp-route-returnUrl="@Context.Request.Path" class="btn btn-secondary">Remove from Cart</a>
+                }
+                else
+                {
+                    <a asp-controller="Favorite" asp-action="Add" asp-route-id="@Model.Id" asp-route-returnUrl="@Context.Request.Path" class="btn btn-primary">Add to Cart</a>
+                }
             </div>
         </div>
     </div>

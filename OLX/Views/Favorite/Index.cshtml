@@ -1,0 +1,27 @@
+﻿@model List<Announcement>;
+
+<div class="card text-center">
+    <div class="card-header">
+        My Favorite
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Product List</h5>
+
+        <ul class="list-group">
+            @foreach (var i in Model)
+            {
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    @i.Title
+                    <span class="badge bg-primary rounded-pill">@i.Price$</span>
+                </li>
+            }
+        </ul>
+
+        <div>
+            <a asp-controller="Home" class="btn btn-primary mt-2">Continue Shoping</a>
+        </div>
+    </div>
+    <div class="card-footer text-muted">
+        Total: @Model.Sum(x => x.Price)$
+    </div>
+</div>
